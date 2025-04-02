@@ -1,0 +1,7 @@
+/upgrade
+/upgrade-temp-backup
+/uploads
+/themes/filter-pear/node_modules
+/plugins/filter-peach/public/blocks/node_modules
+.DS_Store
+**/.DS_Store

@@ -1,0 +1,55 @@
+@use "sass:map";
+
+.container,
+.container-full {
+	width: 100%;
+	margin-left: auto;
+    margin-right: auto;
+	padding-left: calc( $column-gap/2 );
+	padding-right: calc( $column-gap/2 );
+}
+
+.row {
+	display: flex;
+	flex-wrap: wrap;
+	margin-left: calc( $column-gap/-2 );
+	margin-right: calc( $column-gap/-2 );
+
+	& > * {
+		padding-left: calc( $column-gap/2 );
+		padding-right: calc( $column-gap/2 );
+		max-width: 100%;
+	}
+}
+
+// Container max widths depending on the breakpoint.
+.container {
+	@each $breakpoint-key, $breakpoint-size in $grid-breakpoints {
+		@media screen and (min-width: $breakpoint-size ) {
+			max-width: map.get($container-max-widths, $breakpoint-key );
+		}
+		
+	}
+}
+
+// Generate all available column size widths.
+@each $breakpoint-key, $breakpoint-size in $grid-breakpoints {
+	@if $breakpoint-key == sm {
+		@each $column-size, $column-value in $column-sizes {
+			.col-#{$column-size} {
+				flex: 0 0 auto;
+				width: $column-value;
+			}
+		}
+	}
+	@else {
+		@media screen and (min-width: $breakpoint-size) {
+			@each $column-size, $column-value in $column-sizes {
+				.col-#{$breakpoint-key}-#{$column-size} {
+					flex: 0 0 auto;
+					width: $column-value;
+				}
+			}
+		}
+	}
+}

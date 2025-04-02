@@ -1,0 +1,97 @@
+@use "sass:meta";
+@use "sass:string";
+@use "sass:map";
+@use 'sass:list';
+@use 'sass:color';
+
+@import "~rfs/scss";
+
+// get dynamic mixin name.
+@mixin get-dynamic-mixin( $name, $mixin-value ) {
+    @include meta.apply( meta.get-mixin( $name ), $mixin-value );
+}
+
+// Responsive body font sizes.
+@mixin body-font-size($fs-map) {
+	@each $fs-breakpoint, $fs-font-size in $fs-map {
+		@if $fs-breakpoint == null {
+			font-size: $fs-font-size;
+		}
+		@else {
+			@media screen and (min-width: $fs-breakpoint) {
+				font-size: $fs-font-size;
+			}
+		}
+	}
+}
+
+// Generate responsive and non-responsive classes.
+@mixin generate-classes-from-list( $classes-list, $responsive-breakpoint) {
+	@each $class-type, $class-options in $classes-list {
+		$values: map.get( $class-options, "values" );
+		$class-name: map.get( $class-options, "class" );
+		$property: map.get( $class-options, "property" );
+		$type: map.get( $class-options, "type" );
+
+		@if $type == string {
+			@each $value in $values {
+				@if $responsive-breakpoint == null {
+					.#{$class-name}-#{$value} {
+						#{$property}: $value
+					}
+				}
+				@else {
+					.#{$class-name}-#{$responsive-breakpoint}-#{$value} {
+						#{$property}: $value
+					}
+				}
+			}
+		}
+		@else {
+			@each $key, $value in $values {
+				@if $responsive-breakpoint == null {
+					.#{$class-name}-#{$key} {
+						#{$property}: $value
+					}
+				}
+				@else {
+					.#{$class-name}-#{$responsive-breakpoint}-#{$key} {
+						#{$property}: $value
+					}
+				}
+			}
+		}
+	
+	}
+}
+
+@mixin set-forground-color( $background-color ) {
+	@if color.channel($background-color, "lightness", hsl) > 50 {
+		color: $text_color_primary;
+	}
+	@else {
+		color: $white;
+	}
+}
+
+@mixin visually-hidden() {
+	width: 1px !important;
+	height: 1px !important;
+	padding: 0 !important;
+	margin: -1px !important;
+	overflow: hidden !important;
+	clip: rect(0, 0, 0, 0) !important;
+	white-space: nowrap !important;
+	border: 0 !important;
+
+	&:not(caption) {
+	  position: absolute !important;
+	}
+}
+  
+@mixin visually-hidden-focusable() {
+	&:not(:focus):not(:focus-within) {
+	  @include visually-hidden();
+	}
+}
+  

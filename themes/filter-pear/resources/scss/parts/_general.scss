@@ -1,0 +1,224 @@
+@use 'sass:color';
+
+$general-responsive-classes: (
+	"display": (
+		property: display,
+		class: d,
+		values: (inline, block, flex, none),
+		type: string
+	),
+	"flex-direction": (
+		property: flex-direction,
+		class: flex,
+		values: (row column row-reverse column-reverse),
+		type: string
+    ),
+    "flex-grow": (
+		property: flex-grow,
+		class: flex,
+		values: (
+			grow-0: 0,
+			grow-1: 1,
+		),
+		type: map
+    ),
+    "flex-shrink": (
+		property: flex-shrink,
+		class: flex,
+		values: (
+			shrink-0: 0,
+			shrink-1: 1,
+		),
+		type: map
+    ),
+    "flex-wrap": (
+		property: flex-wrap,
+		class: flex,
+		values: (wrap nowrap wrap-reverse),
+		type: string
+    ),
+    "justify-content": (
+		property: justify-content,
+		class: justify-content,
+		values: (
+			start: flex-start,
+			end: flex-end,
+			center: center,
+			between: space-between,
+			around: space-around,
+			evenly: space-evenly,
+		),
+		type: map
+    ),
+    "align-items": (
+		property: align-items,
+		class: align-items,
+		values: (
+			start: flex-start,
+			end: flex-end,
+			center: center,
+			baseline: baseline,
+			stretch: stretch,
+		),
+		type: map
+    ),
+	"order": (
+		property: order,
+		class: order,
+		values: (0, 1, 2, 3, 4, 5, 6),
+		type: string
+    ),
+	"text-align": (
+		property: text-align,
+		class: text,
+		values: ( left, right, center),
+		type: string
+    ),
+);
+
+$general-classes: (
+	"opacity": (
+		property: opacity,
+		class: opacity,
+		values: (
+			0: 0,
+			25: .25,
+			50: .5,
+			75: .75,
+			100: 1,
+		),
+		type: map
+	),
+	"width": (
+		property: width,
+		class: w,
+		values: (
+			50: 50%,
+			100: 100%,
+			auto: auto
+		),
+		type: map
+    ),
+	"max-width": (
+		property: max-width,
+		class: mw,
+		values: (100: 100%),
+		type: map
+    ),
+	"height": (
+		property: height,
+		class: h,
+		values: (
+			50: 50%,
+			100: 100%,
+			auto: auto
+		),
+		type: map
+    ),
+    "max-height": (
+		property: max-height,
+		class: mh,
+		values: (
+			100: 100%
+		),
+		type: map
+    ),
+	"font-weight": (
+		property: font-weight,
+		class: fw,
+		values: (
+			light: 200,
+			normal: 400,
+			medium: 500,
+			bold: 700,
+		),
+		type: map
+    ),
+	"text-decoration": (
+		property: text-decoration,
+		class: text-decoration,
+		values: (none underline line-through),
+		type: string
+    ),
+	"text-transform": (
+		property: text-transform,
+		class: text,
+		values: (lowercase uppercase capitalize),
+		type: string
+    ),
+	"position": (
+		property: position,
+		class: position,
+		values: (static relative absolute fixed sticky),
+		type: string
+    ),
+	"top": (
+		property: top,
+		class: top,
+		values: $position-values,
+		type: map
+    ),
+    "bottom": (
+		property: bottom,
+		class: bottom,
+		values: $position-values,
+		type: map
+    ),
+    "left": (
+		property: left,
+		class: left,
+		values: $position-values,
+		type: map
+    ),
+    "right": (
+		property: right,
+		class: right,
+		values: $position-values,
+		type: map
+    ),
+	"color": (
+		property: color,
+		class: color,
+		values: $theme-colors,
+		type: map
+	),
+	"background-color": (
+		property: background-color,
+		class: bg,
+		values: $theme-colors,
+		type: map
+	),
+);
+
+// Generate responsive classes with breakpoints.
+@each $breakpoint-key, $breakpoint-size in $grid-breakpoints {
+	@if $breakpoint-key == sm {
+		@include generate-classes-from-list( $general-responsive-classes, null );
+	}
+	@else {
+		@media screen and (min-width: $breakpoint-size) {
+			@include generate-classes-from-list( $general-responsive-classes, $breakpoint-key );
+		}
+	}
+}
+
+// Generate non-responsive classes.
+@include generate-classes-from-list( $general-classes, null );
+
+.visually-hidden {
+	@include visually-hidden();
+}
+
+.visually-hidden-focusable {
+	@include visually-hidden-focusable();
+}
+
+// .hero-content {
+// 	background-color: color.scale($primary, $alpha: -40%);
+// }
+
+// .wp-site-blocks {
+// 	min-height: 100vh;
+//     display: flex;
+//     flex-direction: column;
+// }

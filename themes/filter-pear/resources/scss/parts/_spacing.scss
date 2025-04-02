@@ -1,0 +1,11 @@
+
+// Generates padding and margin sizes with responsive sizes.
+@each $key, $spacer-type in $spacer-types {
+    @each $type, $direction in $spacer-directions {
+        @each $size, $value in $spacers {
+            .#{$key}#{$type}-#{$size} {
+                @include get-dynamic-mixin( "#{$spacer-type}-#{$direction}", $value );
+            }
+        }
+    }
+}

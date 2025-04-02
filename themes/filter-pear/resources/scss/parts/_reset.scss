@@ -1,0 +1,150 @@
+@use "sass:color";
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+* {
+	margin: 0;
+}
+
+body {
+	line-height: 1.5;
+	-webkit-font-smoothing: antialiased;
+	font-size: $base-font-size;
+	font-family: $font-family;
+	font-weight: 400;
+	background-color: $white;
+}
+
+img, picture, video, canvas, svg {
+	display: block;
+	max-width: 100%;
+}
+
+input, button, textarea, select {
+	font: inherit;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+	overflow-wrap: break-word;
+	hyphens: auto;
+}
+
+p, ul, ol, li, span, a {
+	font-size: inherit;
+}
+
+ul, ol {
+	padding-left: $spacer * 2;
+	margin-bottom: $spacer;
+}
+
+b, strong {
+	font-weight: 700;
+}
+
+p {
+	margin-bottom: 1rem;
+}
+
+small {
+	font-size: $base-font-size * 0.6;
+}
+
+a {
+	color: $link_color;
+	text-decoration: underline;
+
+	&:hover {
+		color: color.adjust($link_color, $lightness: -10%, $space: hsl);
+	}
+}
+
+%heading {
+	margin-top: 0;
+	margin-bottom: 1rem;
+	font-weight: 900;
+	color: $text_color_primary;
+	line-height: 1.3;
+}
+
+h1, .h1 {
+	@extend %heading;
+	@include font-size($h1-font-size);
+}
+
+h2, .h2 {
+	@extend %heading;
+	@include font-size($h2-font-size);
+}
+
+h3, .h3 {
+	@extend %heading;
+	@include font-size($h3-font-size);
+}
+
+h4, .h4 {
+	@extend %heading;
+	@include font-size($h4-font-size);
+}
+
+h5, .h5 {
+	@extend %heading;
+	@include font-size($h5-font-size);
+}
+
+h6, .h6 {
+	@extend %heading;
+	@include font-size($h6-font-size);
+}
+
+table {
+	caption-side: bottom;
+	border-collapse: collapse;
+}
+
+th {
+	font-weight: 500;
+	text-align: inherit;
+	text-align: -webkit-match-parent;
+}
+
+thead,
+tbody,
+tfoot,
+tr,
+td,
+th {
+	border-color: inherit;
+	border-style: solid;
+	border-width: 0;
+}
+
+::-moz-focus-inner {
+	padding: 0;
+	border-style: none;
+}
+
+textarea {
+	resize: vertical;
+}
+
+iframe {
+	border: 0;
+}
+
+::-webkit-datetime-edit-fields-wrapper,
+::-webkit-datetime-edit-text,
+::-webkit-datetime-edit-minute,
+::-webkit-datetime-edit-hour-field,
+::-webkit-datetime-edit-day-field,
+::-webkit-datetime-edit-month-field,
+::-webkit-datetime-edit-year-field {
+	padding: 0;
+}
+
+::-webkit-inner-spin-button {
+	height: auto;
+}
+

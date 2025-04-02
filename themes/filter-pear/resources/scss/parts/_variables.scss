@@ -1,0 +1,108 @@
+$primary: #4D5A5E;
+$secondary: #F2F2F2;
+$white: #ffffff;
+$red: #dc3545;
+$green: #64816A;
+$makara: #817864;
+$sirocco: #64817E;
+$limed_ash: #758164;
+
+$text_color_primary: $primary;
+$link_color: $primary;
+
+$theme-colors: (
+    "primary":    $primary,
+    "secondary":  $secondary,
+    "dark-text": $text_color_primary,
+    "white": $white,
+    "danger": $red,
+    "success": $green,
+    "transparent": transparent,
+    "makara": $makara,
+    "sirocco": $sirocco,
+    "limed_ash": $limed_ash,
+);
+
+$base-font-size: 1rem;
+
+$body-font-sizes: (
+    null: $base-font-size * 0.8,
+    768px: $base-font-size,
+    1400px: $base-font-size * 1.2
+);
+
+$font-family: "Inter", system-ui, -apple-system, Roboto, "Helvetica Neue";
+
+$h1-font-size: $base-font-size * 3;
+$h2-font-size: $base-font-size * 2.5;
+$h3-font-size: $base-font-size * 2;
+$h4-font-size: $base-font-size * 1.8;
+$h5-font-size: $base-font-size * 1.5;
+$h6-font-size: $base-font-size * 1.3;
+
+$btn-padding-y: 0.625rem;
+$btn-padding-x: 2.5rem;
+
+$spacer: 1rem;
+
+$spacers: (
+  0: 0,
+  1: calc($spacer / 4),
+  2: calc($spacer / 2),
+  3: $spacer,
+  4: $spacer * 1.5,
+  5: $spacer * 3,
+  6: $spacer * 6,
+  auto: auto,
+);
+
+$spacer-types: (
+    m: margin,
+    p: padding,
+);
+
+$spacer-directions: (
+    t: top,
+    b: bottom,
+    l: left,
+    r: right,
+);
+
+$column-gap: 1.5rem;
+
+$grid-breakpoints: (
+	sm: 576px,
+	md: 768px,
+	lg: 992px,
+	xl: 1300px,
+	xxl: 1400px,
+);
+
+$container-max-widths: (
+	sm: 540px,
+	md: 720px,
+	lg: 960px,
+	xl: 1200px,
+	xxl: 1320px,
+);
+
+$column-sizes: (
+	1: calc( 100%/12 ),
+	2: calc( 100%/6 ),
+	3: calc( 100%/4 ),
+	4: calc( 100%/3 ),
+	5: calc( (100%/12)*5 ),
+	6: 50%,
+	7: calc( (100%/12)*7 ),
+	8: calc( (100%/12)*8 ),
+	9: calc( (100%/12)*9 ),
+	10: calc( (100%/12)*10 ),
+	11: calc( (100%/12)*11 ),
+	12: 100%,
+);
+
+$position-values: (
+    0: 0,
+    50: 50%,
+    100: 100%
+);
