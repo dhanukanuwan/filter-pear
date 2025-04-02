@@ -3,7 +3,7 @@ This is a custom hybrid starter theme developed for WordPress and requires WordP
 
 All CSS are generated using SASS and new styles should be added only using SASS. Most of the class names are inspired by Bootstrap but it uses very simple custom SASS mixins and functions to generate class names and styles.
 
-It uses @wordpress/scripts for the build process and run following commands to start customizing or to generate nw buid files.
+It uses @wordpress/scripts for the build process and run following commands to start customizing or to generate new build files.
 
 ```
 npm install
