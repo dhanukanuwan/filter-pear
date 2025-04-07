@@ -1,0 +1,18 @@
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+
+ @media (max-width: 575.98px) {
+	.wp-block-filter-peach-blocks-button {
+		width: 100%;
+		text-align: center;
+		margin-bottom: 1rem;
+
+		&.mr-3 {
+			margin-right: 0 !important;
+		}
+	}
+ }

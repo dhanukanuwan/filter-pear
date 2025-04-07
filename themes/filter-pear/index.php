@@ -20,7 +20,7 @@ get_header();
 
 		<?php if ( have_posts() ) : ?>
 
-			<div class="py-4 py-lg-5">
+			<div class="pt-5 pt-lg-6 pb-5 pb-lg-6">
 				<div class="container">
 
 					<?php while ( have_posts() ) : ?>

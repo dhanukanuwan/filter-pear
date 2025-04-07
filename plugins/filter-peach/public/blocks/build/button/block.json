@@ -1,0 +1,46 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "filter-peach-blocks/button",
+  "version": "0.1.0",
+  "title": "Button",
+  "category": "widgets",
+  "icon": "button",
+  "description": "Button block.",
+  "attributes": {
+    "btnText": {
+      "type": "string",
+      "default": "Learn more"
+    },
+    "url": {
+      "type": "string",
+      "default": "#"
+    },
+    "btnColor": {
+      "type": "string",
+      "default": "primary"
+    },
+    "btnSize": {
+      "type": "string",
+      "default": ""
+    },
+    "btnStyle": {
+      "type": "string",
+      "default": "outline"
+    },
+    "align": {
+      "type": "string"
+    },
+    "openNewTab": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "example": {},
+  "supports": {
+    "html": false
+  },
+  "textdomain": "filter-peach-blocks",
+  "editorScript": "file:./index.js",
+  "style": "file:./style-index.css"
+}

@@ -8,7 +8,7 @@
   "glyphs": [
     {
       "uid": "7222571caa5c15f83dcfd447c58d68d9",
-      "css": "search",
+      "css": "search-1",
       "code": 59392,
       "src": "entypo"
     },
@@ -50,7 +50,7 @@
     },
     {
       "uid": "4c1ef492f1d2c39a2250ae457cee2a6e",
-      "css": "instagram",
+      "css": "instagram-1",
       "code": 61805,
       "src": "fontawesome"
     },
@@ -69,7 +69,7 @@
     {
       "uid": "3d0476de2b9c3e2b820b36e0676cfa5a",
       "css": "cart-outline",
-      "code": 59392,
+      "code": 128269,
       "src": "custom_icons",
       "selected": true,
       "svg": {
@@ -83,7 +83,7 @@
     {
       "uid": "9ceecf5f36ed8740b6e9d77abba55ce3",
       "css": "sofa",
-      "code": 59393,
+      "code": 59448,
       "src": "custom_icons",
       "selected": true,
       "svg": {
@@ -97,7 +97,7 @@
     {
       "uid": "18243615a48792fd981c620589a5e63e",
       "css": "table",
-      "code": 59394,
+      "code": 59449,
       "src": "custom_icons",
       "selected": true,
       "svg": {
@@ -111,7 +111,7 @@
     {
       "uid": "0e0d1011c433042d062dfdf177810cb3",
       "css": "plant",
-      "code": 59395,
+      "code": 59450,
       "src": "custom_icons",
       "selected": true,
       "svg": {
@@ -125,7 +125,7 @@
     {
       "uid": "40dd52ec67189c6bb14c1bc85ed7bc55",
       "css": "light",
-      "code": 59396,
+      "code": 59451,
       "src": "custom_icons",
       "selected": true,
       "svg": {

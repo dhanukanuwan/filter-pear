@@ -1,68 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 @import "~rfs/scss";
 @import 'parts/variables';
+@import 'parts/mixins';
+@import 'parts/reset';
+@import 'parts/spacing';
+@import 'parts/columns';
+@import 'parts/general';
+@import 'parts/buttons';
 @import 'parts/icons';
 
-%heading {
-	margin-top: 0;
+%editorheading {
 	margin-bottom: 1rem;
 	font-weight: 900;
-	color: $text_color_primary;
 }
 
-.edit-post-visual-editor {
+.editor-styles-wrapper {
+    padding: 0 2rem;
+    font-family: $font-family;
+    background: $white;
 
-    .editor-styles-wrapper {
-        padding: 0 2rem;
+    p,
+    li,
+    a {
+        font-size: $body-font-size;
         font-family: $font-family;
-        background: $white;
-    
-        p,
-        li,
-        a {
-            font-size: $base-font-size;
-            font-family: $font-family;
-        }
-        h1, h2, h3, h4, h5, h6 {
-            font-family: $font-family;
-            font-weight: 700;
-        }
-    
-        h1, .h1 {
-            @extend %heading;
-            @include font-size($h1-font-size);
-        }
-        
-        h2, .h2 {
-            @extend %heading;
-            @include font-size($h2-font-size);
-        }
-        
-        h3, .h3 {
-            @extend %heading;
-            @include font-size($h3-font-size);
-        }
-        
-        h4, .h4 {
-            @extend %heading;
-            @include font-size($h4-font-size);
-        }
-        
-        h5, .h5 {
-            @extend %heading;
-            @include font-size($h5-font-size);
-        }
-        
-        h6, .h6 {
-            @extend %heading;
-            @include font-size($h6-font-size);
-        }
+        line-height: 1.2;
+    }
+    h1, h2, h3, h4, h5, h6 {
+        font-family: $font-family;
 
-        .color-white {
-            color: $white !important;
+        &:not(.has-text-color) {
+            color: $text_color_primary;
         }
-
-        
-        
     }
 
+    h1, .h1 {
+        @extend %editorheading;
+        @include font-size($h1-font-size);
+    }
+    
+    h2, .h2 {
+        @extend %editorheading;
+        @include font-size($h2-font-size);
+    }
+    
+    h3, .h3 {
+        @extend %editorheading;
+        @include font-size($h3-font-size);
+    }
+    
+    h4, .h4 {
+        @extend %editorheading;
+        @include font-size($h4-font-size);
+    }
+    
+    h5, .h5 {
+        @extend %editorheading;
+        @include font-size($h5-font-size);
+    }
+    
+    h6, .h6 {
+        @extend %editorheading;
+        @include font-size($h6-font-size);
+    }
+
+    .color-white {
+        color: $white !important;
+    }
+
+    
+    
 }

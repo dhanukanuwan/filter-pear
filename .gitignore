@@ -3,5 +3,7 @@
 /uploads
 /themes/filter-pear/node_modules
 /plugins/filter-peach/public/blocks/node_modules
+/plugins/woocommerce/
+/plugins/woocommerce-services/
 .DS_Store
 **/.DS_Store

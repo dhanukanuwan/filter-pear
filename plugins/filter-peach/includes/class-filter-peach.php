@@ -140,9 +140,19 @@ class Filter_Peach {
 
 		$plugin_public = new Filter_Peach_Public( $this->get_plugin_name(), $this->get_version() );
 
-		// $this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
-		// $this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
+		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'filter_peach_remove_unwanted_scripts', 999 );
+		$this->loader->add_action( 'init', $plugin_public, 'filter_peach_blocks_register_site_blocks' );
+		$this->loader->add_action( 'enqueue_block_editor_assets', $plugin_public, 'filter_peach_blocks_register_block_editor_js' );
+		$this->loader->add_action( 'enqueue_block_editor_assets', $plugin_public, 'filter_peach_blocks_register_editor_hooks' );
 
+		$this->loader->add_filter( 'allowed_block_types_all', $plugin_public, 'filter_peach_blocks_disable_core_blocks', 10, 1 );
+		$this->loader->add_filter( 'render_block', $plugin_public, 'filter_peach_blocks_enable_img_tag_layzy_load', 10, 2 );
+		$this->loader->add_filter( 'wp_omit_loading_attr_threshold', $plugin_public, 'filter_peach_blocks_change_lazy_loading_threshold', 10, 1 );
+		$this->loader->add_filter( 'render_block_core/heading', $plugin_public, 'filter_peach_blocks_add_custom_class_to_headings', 10, 2 );
+
+		$this->loader->add_filter( 'nav_menu_css_class', $plugin_public, 'filter_peach_menu_item_classes', 10, 3 );
+		$this->loader->add_filter( 'nav_menu_link_attributes', $plugin_public, 'filter_peach_menu_item_link_classes', 10, 3 );
+		$this->loader->add_filter( 'wp_nav_menu_items', $plugin_public, 'filter_peach_add_dynamic_menu_items', 10, 2 );
 	}
 
 	/**

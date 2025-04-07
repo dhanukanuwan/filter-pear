@@ -1,0 +1,28 @@
+{
+	"name": "filter-peach-blocks",
+	"version": "0.1.0",
+	"description": "Example block scaffolded with Create Block tool.",
+	"author": "The WordPress Contributors",
+	"license": "GPL-2.0-or-later",
+	"main": "build/index.js",
+	"scripts": {
+		"format": "wp-scripts format",
+		"lint:css": "wp-scripts lint-style",
+		"lint:js": "wp-scripts lint-js",
+		"packages-update": "wp-scripts packages-update",
+		"plugin-zip": "wp-scripts plugin-zip",
+		"start": "wp-scripts start --webpack-src-dir=src/ --output-path=build/",
+		"build": "wp-scripts build --webpack-src-dir=src/ --output-path=build/",
+		"start-filters": "wp-scripts start index.js --webpack-src-dir=src/block-filters/ --output-path=filters-build/block-filters",
+		"build-filters": "wp-scripts build index.js --webpack-src-dir=src/block-filters/ --output-path=filters-build/block-filters"
+	},
+	"devDependencies": {
+		"@wordpress/i18n": "^5.21.0",
+		"@wordpress/scripts": "^30.14.1"
+	},
+	"dependencies": {
+		"@wordpress/autop": "^4.21.0",
+		"@wordpress/hooks": "^4.21.0",
+		"@wordpress/icons": "^10.21.0"
+	}
+}

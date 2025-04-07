@@ -1,0 +1,48 @@
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+
+.wp-block-filter-peach-blocks-content-column {
+	.has-text-align-center {
+		text-align: center;
+	}
+	.has-text-align-left {
+		text-align: left;
+	}
+	.has-text-align-right {
+		text-align: right;
+	}
+	.text-center {
+		.wp-block-filter-peach-blocks-mariadb-icon {
+			justify-content: center;
+		}
+	}
+	.text-end {
+		.wp-block-filter-peach-blocks-mariadb-icon {
+			justify-content: end;
+		}
+	}
+
+	.wp-block-image {
+		img {
+			max-width: 100%;
+		}
+	}
+
+	@media (max-width: 767.98px) {
+		margin-bottom: 1.5rem;
+	}
+
+	@media (max-width: 1000px) {
+		&.has-bg-image,
+		&.has-bg-color {
+			.column-content-wrap {
+				padding-left: 1.5rem;
+    			padding-right: 1.5rem;
+			}
+		}
+	}
+}

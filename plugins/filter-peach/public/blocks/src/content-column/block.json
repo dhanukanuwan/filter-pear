@@ -1,0 +1,46 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "filter-peach-blocks/content-column",
+	"version": "0.1.0",
+	"title": "Content Column",
+	"category": "widgets",
+	"icon": "columns",
+	"description": "Content column block to be used inside sections.",
+	"attributes": {
+		"columnSize": {
+			"type": "string"
+		},
+		"bgType": {
+			"type": "string"
+		},
+		"columnBg": {
+			"type": "string"
+		},
+		"bgImage": {
+			"type": "object",
+			"default": {
+				"url": "",
+				"id": 0,
+				"alt": ""
+			}
+		},
+		"columnPaddingY": {
+			"type": "string"
+		},
+		"columnPaddingX": {
+			"type": "string"
+		},
+		"align": {
+			"type": "string"
+		}
+	},
+	"example": {},
+	"supports": {
+		"html": false
+	},
+	"textdomain": "filter-peach-blocks",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css"
+}

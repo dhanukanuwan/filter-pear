@@ -4,7 +4,7 @@ $general-responsive-classes: (
 	"display": (
 		property: display,
 		class: d,
-		values: (inline, block, flex, none),
+		values: (inline-block, block, flex, none),
 		type: string
 	),
 	"flex-direction": (
@@ -213,12 +213,31 @@ $general-classes: (
 	@include visually-hidden-focusable();
 }
 
-// .hero-content {
-// 	background-color: color.scale($primary, $alpha: -40%);
-// }
+.list-unstyled {
+	padding-left: 0;
+	list-style: none;
+}
 
-// .wp-site-blocks {
-// 	min-height: 100vh;
-//     display: flex;
-//     flex-direction: column;
-// }
+.text-decoration-hover {
+	&:not(:hover) {
+		text-decoration: none;
+	}
+}
+
+.min-vh-100 {
+	min-height: 100vh;
+}
+
+a {
+	&.color-white {
+		&:hover,
+		&:focus {
+			color: $white;
+		}
+	}
+}
+
+img,
+.rounded-lg {
+	border-radius: 1.5rem;
+}

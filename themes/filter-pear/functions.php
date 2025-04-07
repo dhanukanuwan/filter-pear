@@ -34,12 +34,47 @@ if ( ! function_exists( 'filter_pear_initial_setup' ) ) {
 		add_theme_support( 'post-thumbnails' );
 
 		/**
+		 * Disable full-site editing support
+		 */
+		remove_theme_support( 'block-templates' );
+
+		/**
+		 * Disable the default block patterns.
+		 */
+		remove_theme_support( 'core-block-patterns' );
+
+		/**
+		 * Enable responsive embed support.
+		 */
+		add_theme_support( 'responsive-embeds' );
+
+		add_theme_support( 'align-wide' );
+
+		/**
+		 * Enable HTML5 markup support.
+		 */
+		add_theme_support(
+			'html5',
+			array(
+				'caption',
+				'comment-form',
+				'comment-list',
+				'gallery',
+				'search-form',
+				'script',
+				'style',
+			),
+		);
+
+		/**
 		 * Add support for two custom navigation menus.
 		 */
 		register_nav_menus(
 			array(
-				'primary'   => __( 'Primary Menu', 'filter-pear-theme' ),
-				'secondary' => __( 'Footer Menu', 'filter-pear-theme' ),
+				'primary'       => __( 'Primary Menu', 'filter-pear-theme' ),
+				'footer_menu_1' => __( 'Footer Menu One', 'filter-pear-theme' ),
+				'footer_menu_2' => __( 'Footer Menu Two', 'filter-pear-theme' ),
+				'footer_menu_3' => __( 'Footer Menu Three', 'filter-pear-theme' ),
 			)
 		);
 	}
@@ -89,10 +124,14 @@ if ( ! function_exists( 'filter_pear_theme_editor_assets' ) ) {
 	 */
 	function filter_pear_theme_editor_assets() {
 
-		$asset_css = include_once get_theme_file_path( 'public/css/editor.asset.php' );
+		if ( is_admin() ) {
+			$asset_css = include_once get_theme_file_path( 'public/css/editor.asset.php' );
 
-		wp_enqueue_style( 'filter-pear-editor', get_theme_file_uri( 'public/css/editor.css' ), $asset_css['dependencies'], $asset_css['version'] );
+			wp_enqueue_style( 'filter-pear-editor', get_theme_file_uri( 'public/css/editor.css' ), $asset_css['dependencies'], $asset_css['version'] );
+		}
 	}
 
-	add_action( 'enqueue_block_editor_assets', 'filter_pear_theme_editor_assets' );
+	add_action( 'enqueue_block_editor_assets', 'filter_pear_theme_editor_assets', 100 );
 }
+
+add_filter( 'should_load_separate_core_block_assets', '__return_true' );

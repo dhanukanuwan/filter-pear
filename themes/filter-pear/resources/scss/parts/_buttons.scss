@@ -1,13 +1,16 @@
 @use 'sass:color';
 
 .btn {
-    padding: $btn-padding-y $btn-padding-x;
     border: 0;
-    border-radius: 0;
+    border-radius: 5rem;
     text-decoration: none;
     transition: color .15s ease-in-out, background-color .15s ease-in-out;
     cursor: pointer;
     font-weight: 700;
+
+    &:not(.btn-link) {
+        padding: $btn-padding-y $btn-padding-x;
+    }
 }
 
 @each $color-name, $color-code in $theme-colors {
